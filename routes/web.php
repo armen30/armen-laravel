@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::post('/login','UserControllerp@ostLogin')->name('login');
 Route::get('/login', 'UserController@getLogin');
-
+// kdkkdkd
 Route::get('/sign-up', 'UserController@getSignUp')->name('user.signup');
 Route::post('/sign-up', 'UserController@postSignUp');
 Route::get('users','UserController@getUsers')->name('user.list');
