@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\createUsersRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -17,7 +19,14 @@ class UserController extends Controller
     public function postLogin(Request $request)
     {
         $data = $request->only('email', 'password');
-        dd($data);
+            if (Auth::attempt($data)){
+                return  redirect()->route( 'dashboard');
+            }else {
+                return redirect()->back()->with('error', 'invalid email or password');
+            }
+
+
+
     }
 
     public function getSignUp()
@@ -25,9 +34,17 @@ class UserController extends Controller
         return view('sign-up');
     }
 
-    public function postSignUp(Request $request)
+    public function postSignUp(createUsersRequest $request)
     {
-        $data = $request->only('name','email', 'password');
+//        $validated = $request->validate([
+//            'name'=> 'required|min:3|max:64',
+//            'email'=> 'required|email',
+//            'password'=> 'required|min:4'
+//        ]);
+        $data = $request->validated();
+        $data['password'] = bcrypt($data['password']) ;
+
+
         $user = User::create($data);
         return redirect()->route('login')->with('success','dsdfsfsfs');
     }

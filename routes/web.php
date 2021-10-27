@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,16 +13,17 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// qo gorcy
+
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/login','UserControllerp@ostLogin')->name('login');
+Route::post('/login','UserController@postLogin')->name('login');
 Route::get('/login', 'UserController@getLogin');
-// kdkkdkd
+
 Route::get('/sign-up', 'UserController@getSignUp')->name('user.signup');
 Route::post('/sign-up', 'UserController@postSignUp');
 Route::get('users','UserController@getUsers')->name('user.list');
-//Route::get('test')
+//Route::get('feed', [DashboardController::class, 'getfeed']);
+Route::get('feed', 'DashboardController@getfeed')->name('dashboard');
