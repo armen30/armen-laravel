@@ -23,3 +23,4 @@ Route::get('/login', 'UserController@getLogin');
 Route::get('/sign-up', 'UserController@getSignUp')->name('user.signup');
 Route::post('/sign-up', 'UserController@postSignUp');
 Route::get('users','UserController@getUsers')->name('user.list');
+//Route::get('test')
