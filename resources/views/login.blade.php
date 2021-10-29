@@ -5,7 +5,7 @@
 
 @section('content')
     @include('includes.message')
-    <form action="/login" method="POST" style="display: flex;justify-content: center;">
+    <form  action="/login" method="POST" style="display: flex;justify-content: center;">
         @csrf
         <div>
             <input type="email" name="email" placeholder="Your Email">
@@ -13,8 +13,12 @@
         <div>
             <input type="password" name="password" placeholder="Your Password">
         </div>
+
         <div>
             <input type="submit" value="LOG IN">
         </div>
+
+
+
     </form>
 @endsection

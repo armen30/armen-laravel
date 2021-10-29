@@ -42,7 +42,7 @@ class UserController extends Controller
 //            'password'=> 'required|min:4'
 //        ]);
         $data = $request->validated();
-        $data['password'] = bcrypt($data['password']) ;
+
 
 
         $user = User::create($data);
@@ -57,6 +57,7 @@ public function getUsers()
     return view( 'users-list', [
         'users' => $users
     ]);
+
     }
 }
 

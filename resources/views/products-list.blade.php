@@ -8,21 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-<h1>All users list</h1>
-@foreach($users as $user)
-    <div>
-        <ul>
-            <li>{{$user->name}}</li>
-            <li>{{$user->getRawOriginal('name')}}</li>
-            <li>{{$user->email}}</li>
-            <li>{{$user->created_at}}</li>
-
-
-        </ul>
-    </div>
-    <hr>
-    @endforeach
-
-
+@foreach($products as $product)
+    <ul>
+        <li>{{$product->name}}</li>
+    </ul>
+@endforeach
 </body>
 </html>

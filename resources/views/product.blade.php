@@ -8,21 +8,13 @@
     <title>Document</title>
 </head>
 <body>
-<h1>All users list</h1>
-@foreach($users as $user)
+<form action="products" method="post">
+    @csrf
+    <div>name<input type="text" name="name"></div>
+    <div>price<input type="text" name="price"></div>
     <div>
-        <ul>
-            <li>{{$user->name}}</li>
-            <li>{{$user->getRawOriginal('name')}}</li>
-            <li>{{$user->email}}</li>
-            <li>{{$user->created_at}}</li>
-
-
-        </ul>
+        <input type="submit" name="save">
     </div>
-    <hr>
-    @endforeach
-
-
+</form>
 </body>
 </html>

@@ -24,6 +24,16 @@ Route::get('/login', 'UserController@getLogin');
 
 Route::get('/sign-up', 'UserController@getSignUp')->name('user.signup');
 Route::post('/sign-up', 'UserController@postSignUp');
-Route::get('users','UserController@getUsers')->name('user.list');
+Route::group(['middleware' => ['loggedIn']], function (){
+    Route::get('users','UserController@getUsers')->name('user.list');
 //Route::get('feed', [DashboardController::class, 'getfeed']);
-Route::get('feed', 'DashboardController@getfeed')->name('dashboard');
+    Route::get('feed', 'DashboardController@getfeed')->name('dashboard');
+
+    Route::get('products', 'ProductController@index');
+    Route::post('products', 'ProductController@store');
+    Route::get('products-list', 'ProductController@getProducts');
+
+
+});
+
+
