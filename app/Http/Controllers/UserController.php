@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function getLogin()
     {
-        return view('login', [
+        return view('login', [    //sra mejin@ poxancuma frontin
             'date' => 2021,
             'status' => true,
         ]);

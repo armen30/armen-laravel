@@ -13,7 +13,7 @@ use App\Http\Controllers\DashboardController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//es handisanuma vorpers menejer
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,7 +27,7 @@ Route::post('/sign-up', 'UserController@postSignUp');
 Route::group(['middleware' => ['loggedIn']], function (){
     Route::get('users','UserController@getUsers')->name('user.list');
 //Route::get('feed', [DashboardController::class, 'getfeed']);
-    Route::get('feed', 'DashboardController@getfeed')->name('dashboard');
+    Route::get('feed', 'DashboardController@getfeed')->name('dashboard');//route("dashboard")
 
     Route::get('products', 'ProductController@index');
     Route::post('products', 'ProductController@store');

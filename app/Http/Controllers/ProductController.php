@@ -22,7 +22,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $data = $request->only('name','price');
-        $data['user_id'] = Auth::user()->id;
+        $data['user_id'] = Auth::user()->id; ///TALISA LOGIN EXAC USER@
         Product::create($data);
 
 
