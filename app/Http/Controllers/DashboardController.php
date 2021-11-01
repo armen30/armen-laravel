@@ -9,7 +9,9 @@ class DashboardController extends Controller
 {
     public function getFeed ()
     {
-        dd(Auth::User()->products);
-        return view('feed');
+
+        return view('feed', [
+            'product' => Auth::user()->products
+        ]);
     }
 }

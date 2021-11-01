@@ -9,8 +9,12 @@
 </head>
 <body>
 <div>
-    <input type="submit" value="LOGOUT">
+    <h1>Hello{{Auth::user()->name}}</h1>
 </div>
-
+@foreach($products as $product)
+    <ul>
+        <li>{{$product->name}}</li>
+        <li>{{$product->price}}</li>
+    </ul>
 </body>
 </html>
