@@ -13,6 +13,13 @@
     <div>name<input type="text" name="name"></div>
     <div>price<input type="text" name="price"></div>
     <div>
+        <select name="category_id" id="">
+            @foreach($categories as $category)
+                <option value="{{$category->id}}">{{$category->name}}</option>
+            @endforeach
+        </select>
+    </div>
+    <div>
         <input type="submit" name="save">
     </div>
 </form>

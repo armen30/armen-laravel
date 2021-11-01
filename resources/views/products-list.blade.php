@@ -11,6 +11,7 @@
 @foreach($products as $product)
     <ul>
         <li>{{$product->name}}</li>
+        <li>{{$product->user->name}}</li>
     </ul>
 @endforeach
 </body>
