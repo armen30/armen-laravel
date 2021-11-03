@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Events\UserCreatedEvent;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\createUsersRequest;
@@ -46,6 +47,7 @@ class UserController extends Controller
 
 
         $user = User::create($data);
+        event(new UserCreatedEvent($user));
         return redirect()->route('login')->with('success','dsdfsfsfs');
     }
 

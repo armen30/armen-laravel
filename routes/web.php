@@ -32,7 +32,10 @@ Route::group(['middleware' => ['loggedIn']], function (){
     Route::get('products', 'ProductController@index');
     Route::post('products', 'ProductController@store');
     Route::get('products-list', 'ProductController@getProducts');
-
+    Route::get('/cars', 'CarController@getCars')->name('cars');
+    Route::post('/cars', 'CarController@postCars');
+    Route::get('/cars-list', 'CarController@getCarsList')->name('cars-list');
+    Route::post('/cars-list', 'CarController@postCarsList');
 
 });
 
