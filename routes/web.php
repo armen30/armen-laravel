@@ -23,7 +23,7 @@ Route::post('/login','UserController@postLogin')->name('login');
 Route::get('/login', 'UserController@getLogin');
 
 Route::get('/sign-up', 'UserController@getSignUp')->name('user.signup');
-Route::post('/sign-up', 'UserController@postSignUp');
+Route::post('/sign-up', 'UserController@store');
 Route::group(['middleware' => ['loggedIn']], function (){
     Route::get('users','UserController@getUsers')->name('user.list');
 //Route::get('feed', [DashboardController::class, 'getfeed']);
@@ -36,7 +36,8 @@ Route::group(['middleware' => ['loggedIn']], function (){
     Route::post('/cars', 'CarController@postCars');
     Route::get('/cars-list', 'CarController@getCarsList')->name('cars-list');
     Route::post('/cars-list', 'CarController@postCarsList');
-
+    Route::get('users/edit','UserController@edit')->name('users.edit');
+    Route::put('users','UserController@update');
 });
 
 

@@ -35,7 +35,7 @@ class UserController extends Controller
         return view('sign-up');
     }
 
-    public function postSignUp(createUsersRequest $request)
+    public function store(createUsersRequest $request)
     {
 //        $validated = $request->validate([
 //            'name'=> 'required|min:3|max:64',
@@ -60,6 +60,17 @@ public function getUsers()
         'users' => $users
     ]);
 
+    }
+
+    public function edit()
+    {
+        return view('users.edit',[
+            'user'=> Auth::user()
+        ]);
+    }
+    public function update(Request $request)
+    {
+        dd($request->all());
     }
 }
 
