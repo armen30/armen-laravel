@@ -15,6 +15,10 @@ class AddIdToProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->after('price');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 
@@ -26,7 +30,11 @@ class AddIdToProductsTable extends Migration
     public function down()
     {
         Schema::table('products', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+        });
+        Schema::table('products', function (Blueprint $table) {
             $table->dropColumn('user_id');
+
         });
     }
 }
